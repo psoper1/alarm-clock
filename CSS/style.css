@@ -12,17 +12,17 @@
 }
 
 body {
-    background-color: rgb(95, 123, 148);
+    background-image: url(/imgs/background.jpg);
 }
 
-.whiteBox {
+/* .whiteBox {
     background-color: white;
     width: 250px;
     height: auto;
-    margin-top: 40%;
+    margin-top: 20%;
     padding: 5px;
     border-radius: 10px;
-}
+}*/
 
 
 
