@@ -1,27 +1,25 @@
-const currentTime = document.querySelector("h1"),
-    content = document.querySelector(".content"),
-    selectMenu = document.querySelectorAll("select"),
-    setAlarmBtn = document.querySelector("button");
+const getTimeString = ({ hours, minutes, seconds, zone}) => {
+    if (minutes / 10 < 1) {
+        minutes = "0" + minutes;
+    }
+    if (seconds / 10 < 1) {
+        seconds = "0" + seconds;
+    }
+    return `${hours}:${minutes}:${seconds} ${zone}`;
+};
 
-for (let i = 12; i > 0; i--) {
-    i = i < 10 ? `0${i}` : i;
-    let option = `<option value="${i}">${i}</option>`;
-    selectMenu[0]?.firstElementChild.insertAdjacentHTML("afterend", option);
+const renderTime = () => {
+    let currentTime = document.getElementById("current-time");
+    const currentDate = new Date();
+    let hours = currentDate.getHours();
+    let minutes = currentDate.getMinutes();
+    let seconds = currentDate.getSeconds();
+    let zone = hours >= 12 ? "PM" : "AM";
+    if (hours > 12) {
+        hours = hours % 12;
+    }
+    const timeString = getTimeString({ hours, minutes, seconds, zone });
+    currentTime.innerHTML = timeString;
+};
 
-}
-
-for (let i = 59; i >= 0; i--) {
-    i = i < 10 ? `0${i}` : i;
-    let option = `<option value="${i}">${i}</option>`;
-    selectMenu[1]?.firstElementChild.insertAdjacentHTML("afterend", option);
-
-}
-
-for (let i = 2; i > 0; i--) {
-    let ampm = i == 1 ? "AM" : "PM";
-    let option = `<option value="${ampm}">${ampm}</option>`;
-    selectMenu[2]?.firstElementChild.insertAdjacentHTML("afterend", option);
-
-}
-
-console.log(selectMenu);
+setInterval(renderTime, 1000);
