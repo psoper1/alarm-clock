@@ -1,65 +1,36 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
-<head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/CSS/style.css">
-
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Alarm Clock in JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-
-
-<body>
-    <div id="app">
-      <h1>Current Time</h1>
-      <div id="current-time"></div>
-      <div class="create-alarm">
-        <button>Set Alarm</button>
-        <div class="form-actions">
-          <form>
-            <div class="alarm-inputs">
-              <input
-                type="number"
-                name="hour"
-                placeholder="Enter hour"
-                min="0"
-                max="12"
-                required
-              />
-              <input
-                type="number"
-                name="min"
-                min="0"
-                max="60"
-                placeholder="Enter minute"
-                required
-              />
-              <input
-                type="number"
-                name="sec"
-                min="0"
-                max="60"
-                placeholder="Enter second"
-                required
-              />
-              <select name="AM/PM" required>
-                <option value="" selected disabled>Zone</option>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-            </div>
-            <button>Submit</button>
-          </form>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!--<img src="./files/clock.svg" alt="clock">-->
+      <h1>00:00:00 PM</h1>
+      <div class="content">
+        <div class="column">
+          <select>
+            <option value="Hour" selected disabled hidden>Hour</option>
+          </select>
+        </div>
+        <div class="column">
+          <select>
+            <option value="Minute" selected disabled hidden>Minute</option>
+          </select>
+        </div>
+        <div class="column">
+          <select>
+            <option value="AM/PM" selected disabled hidden>AM/PM</option>
+          </select>
         </div>
       </div>
+      <button>Set Alarm</button>
     </div>
-    <div id="active-alarm">
-      <div id="alarm-text"></div>
-      <button id="clear-alarm">Clear Alarm</button>
-    </div>
-    <audio id="alarm-audio"></audio>
-    <script src="main.js"></script>
+    <script src="/JS/main.js"></script>
+    <audio src="alarm.wav"></audio>
   </body>
-
 </html>
