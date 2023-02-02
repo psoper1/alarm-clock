@@ -1,3 +1,16 @@
 body {
     background-image: url("/imgs/background.jpg");
 }
+
+.wrapper {
+   /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    padding: 250px 0;
+    margin: auto;
+    padding-left: 850px;
+}
+
+.content {
+    display: flex;  
+}
