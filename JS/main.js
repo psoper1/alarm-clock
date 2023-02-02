@@ -1,9 +1,9 @@
 const currentTime = document.querySelector("h1"),
-content = document.querySelector(".content"),
-selectMenu = document.querySelectorAll("select"),
-setAlarmBtn = document.querySelector("button");
+    content = document.querySelector(".content"),
+    selectMenu = document.querySelectorAll("select"),
+    setAlarmBtn = document.querySelector("button");
 let alarmTime, isAlarmSet,
-ringtone = new Audio("./files/ringtone.mp3");
+    ringtone = new Audio("alarm.wav");
 for (let i = 12; i > 0; i--) {
     i = i < 10 ? `0${i}` : i;
     let option = `<option value="${i}">${i}</option>`;
@@ -21,11 +21,11 @@ for (let i = 2; i > 0; i--) {
 }
 setInterval(() => {
     let date = new Date(),
-    h = date.getHours(),
-    m = date.getMinutes(),
-    s = date.getSeconds(),
-    ampm = "AM";
-    if(h >= 12) {
+        h = date.getHours(),
+        m = date.getMinutes(),
+        s = date.getSeconds(),
+        ampm = "AM";
+    if (h >= 12) {
         h = h - 12;
         ampm = "PM";
     }
@@ -35,10 +35,8 @@ setInterval(() => {
     s = s < 10 ? "0" + s : s;
     currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
     if (alarmTime === `${h}:${m} ${ampm}`) {
-      alertBox("Wake up!");
-      
-      // ringtone.play("alarm.wav");
-      //  ringtone.loop = true;
+        ringtone.play("alarm.wav");
+        ringtone.loop = true;
     }
 });
 function setAlarm() {
